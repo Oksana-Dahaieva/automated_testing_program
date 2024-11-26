@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
-
 public class LoginPage extends BasePage {
 
   public LoginPage(WebDriver driver) {
