@@ -1,7 +1,6 @@
 package steps;
 
 import business.pages.LoginPage;
-import core.utilities.WaitUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -12,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import static core.configuration.DriverManager.getDriver;
 import static core.configuration.DriverManager.quitDriver;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class LoginSteps {
 
