@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static core.configuration.ConfigManager.getProperty;
+
 public class LoginPage extends BasePage {
 
   public LoginPage(WebDriver driver) {
@@ -25,9 +27,9 @@ public class LoginPage extends BasePage {
   private WebElement successMessage;
 
   public void login() {
-    driver.get(ConfigManager.getProperty("url"));
-    usernameField.sendKeys(ConfigManager.getProperty("username"));
-    passwordField.sendKeys(ConfigManager.getProperty("password"));
+    driver.get(getProperty("url"));
+    usernameField.sendKeys(getProperty("username"));
+    passwordField.sendKeys(getProperty("password"));
     loginButton.click();
   }
 
