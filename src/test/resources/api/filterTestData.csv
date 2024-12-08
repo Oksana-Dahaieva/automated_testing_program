@@ -1,0 +1,4 @@
+filteringField,value,condition,type,isAsc,sortingColumn,name,owner,description
+statistics$executions$passed,2,gte,launch,false,startTime,New_filter_2,oksana_dagaeva,my filter
+statistics$executions$failed,5,lte,launch,true,number,New_filter_3,oksana_dagaeva,failed filter
+statistics$defects$system_issue$si001,10,eq,launch,false,startTime,New_filter_4,oksana_dagaeva,system issue filter
