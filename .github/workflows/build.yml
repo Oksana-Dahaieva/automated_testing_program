@@ -1,4 +1,4 @@
-name: Build on Pull Request
+name: Build and Test on Pull Request
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,5 +22,5 @@ jobs:
       - name: Build Project
         run: mvn clean install
 
-      - name: Run Tests
-        run: mvn test
+      - name: Run Tests in Headless Mode
+        run: mvn test -Dheadless=true
