@@ -1,14 +1,14 @@
 package runners;
 
-import junit5.DashBoardTest;
-import junit5.FilterTests;
-import junit5.LaunchesTest;
-import junit5.WidgetTest;
+import api.DashboardTest;
+import api.FilterTests;
+import api.LaunchesTest;
+import api.WidgetTest;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
 @Suite
-@SelectClasses({LaunchesTest.class, FilterTests.class, DashBoardTest.class, WidgetTest.class})
+@SelectClasses({LaunchesTest.class, FilterTests.class, DashboardTest.class, WidgetTest.class})
 public class JUnit5TestRunner {
 
 }

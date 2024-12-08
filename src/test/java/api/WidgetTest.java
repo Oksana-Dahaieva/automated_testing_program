@@ -1,11 +1,11 @@
-package junit5;
+package api;
 
-import core.RestClient;
-import core.data.TestDataLoader;
+import core.api.RestClient;
 import io.restassured.response.Response;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
+import static core.data.TestDataLoader.getConfigValue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WidgetTest {
@@ -21,6 +21,7 @@ public class WidgetTest {
       String name,
       String description,
       String filterIds) {
+
     String requestBody = String.format("{\"widgetType\": \"%s\", " +
             "\"contentParameters\": {\"contentFields\": [\"%s\"], \"itemsCount\": \"%s\", " +
             "\"widgetOptions\": {\"viewMode\": \"%s\", \"latest\": %s}}, " +
@@ -28,10 +29,10 @@ public class WidgetTest {
             "\"name\": \"%s\", \"description\": \"%s\", \"filterIds\": [\"%s\"]}", widgetType,
         contentParameters, itemsCount, viewMode, latest, value, name, description, filterIds);
 
-    String project = TestDataLoader.getConfigValue("rp.project");
-    String endpoint = "/api/v1/" + project + "/widget/";
+    String project = getConfigValue("rp.project");
+    String endpoint = project + "/widget/";
 
-    RestClient client = new RestClient(TestDataLoader.getConfigValue("rp.api.key"));
+    RestClient client = new RestClient(getConfigValue("rp.api.key"));
 
     Response response = client.post(endpoint, requestBody);
 

@@ -1,4 +1,4 @@
-package core;
+package core.api;
 
 import core.data.TestDataLoader;
 import io.restassured.RestAssured;
