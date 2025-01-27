@@ -1,6 +1,6 @@
 package api;
 
-import core.api.RestClient;
+import core.api.clients.RestClient;
 import io.restassured.response.Response;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
