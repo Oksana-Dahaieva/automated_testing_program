@@ -27,4 +27,8 @@ public class LaunchActions {
     }
     throw new IllegalArgumentException("Sort option not found: " + sortOption);
   }
+
+  public List<WebElement> getLaunchElements() {
+    return launchPage.getLaunchElements();
+  }
 }

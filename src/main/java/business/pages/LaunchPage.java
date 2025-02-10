@@ -17,6 +17,9 @@ public class LaunchPage extends BasePage {
   @FindBy(xpath = "//div[contains(@class,'sortable')]//span")
   private List<WebElement> sortElements;
 
+  @FindBy(xpath = "//div[contains(@class,'sortable')]//span")
+  private List<WebElement> launchElements;
+
   public void openPage() {
     driver.get(getProperty("launchUrl"));
   }
@@ -27,5 +30,9 @@ public class LaunchPage extends BasePage {
 
   public void clickSortElement(WebElement element) {
     element.click();
+  }
+
+  public List<WebElement> getLaunchElements() {
+    return launchElements;
   }
 }
