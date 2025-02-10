@@ -18,4 +18,14 @@ public class DashboardTest extends BaseTest{
     assertEquals(dashboardActions.getSuccessMessageAfterDeleteDashboard(),
         "Dashboard has been added");
   }
+
+  @Test
+  public void testCreateDashboard() {
+    performLogin();
+
+    DashboardActions dashboardActions = new DashboardActions(new DashboardPage(driver));
+    dashboardActions.addNewDashBoard("New Dashboard", "Description");
+
+    assertEquals(dashboardActions.getDashboardTitle(), "NEW DASHBOARD");
+  }
 }

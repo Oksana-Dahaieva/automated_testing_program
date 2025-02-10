@@ -1,29 +1,25 @@
 package core.configuration;
 
+import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverManager {
 
-  private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+  private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
   public static WebDriver getDriver() {
     if (driver.get() == null) {
       ChromeOptions options = new ChromeOptions();
-
-      boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
-
-      if (isHeadless) {
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
-        options.addArguments("--remote-debugging-port=9222");
+      options.addArguments("--start-maximized");
+      if (ConfigManager.getProperty("useSelenide").equals("true")) {
+        Configuration.browser = "chrome";
+        Configuration.headless = false;
+        Configuration.timeout = 5000;
       } else {
-        options.addArguments("--start-maximized");
+        driver.set(new ChromeDriver(options));
       }
-
-      driver.set(new ChromeDriver(options));
     }
     return driver.get();
   }
